@@ -10,6 +10,8 @@ Eat the cheese, avoid the cats, collect the bonus items! A game for computers.
 ## 1. How to play
 The object of the game is to move the mouse over all cells containing a cheese nugget. There are 50 cheese nuggets randomly placed within a single stage. Eat all 50 cheese nuggets and the stage is complete. There are 16 stages in total. Complete all 16 stages and the game will end. 
 
+![Screenshot of first area of game](https://github.com/brianputhuff/mousegame/blob/0c21b8af1c50bc8f0ce7827ebaf9efa5ad4b8b36/mousegame_20211221-153640.png)
+
 **Note:** Stage structures are randomly generated, so every play session will yield unique layouts.
 
 There are four cats that move about the stage. If the mouse makes contact with any of the four cats, the player loses that mouse. The player has an initial reserve set of mice. Every time a mouse is lost, one of the reserve mice are depleted and the game continues. If there are no reserve mice available, the game will end.
@@ -17,6 +19,8 @@ There are four cats that move about the stage. If the mouse makes contact with a
 After a specific duration of play in a stage, a coffee icon will appear at a random location within the stage. If the mouse consumes the coffee, all cats will move at a much slower rate of speed for a limited time.
 
 After a specific duration of play in a stage, a bonus icon will appear at a random location in the stage. If the mouse consumes the bonus icon, all cats will move at a much faster rate of speed for a limited time, however the player will get a major score increase.
+
+![Screenshot of second area of game](https://github.com/brianputhuff/mousegame/blob/0c21b8af1c50bc8f0ce7827ebaf9efa5ad4b8b36/mousegame_20211221-154021.png)
 
 The player will be awarded an extra mouse to his reserve mice when the player's score reaches intervals of 10,000 points. If the player completes a stage without consuming the coffee icon, additional stage completion points are awarded.
 
