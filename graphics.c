@@ -177,7 +177,7 @@ void renderGame ( struct Game *game )
 
 void initializePalettes ( SDL_Palette **palettes )
 {
-	/* 0: BLACK AND WHITE ( MAIN ) */
+	/* Palette 0: BLACK AND WHITE ( MAIN ) */
 	palettes [ 0 ]->colors [ 0 ].r = 0x11;
 	palettes [ 0 ]->colors [ 0 ].g = 0x11;
 	palettes [ 0 ]->colors [ 0 ].b = 0x11;
@@ -188,7 +188,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 0 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 1: KEY LIME */
+	/* Palette 1 */
 	palettes [ 1 ]->colors [ 0 ].r = 0x42;
 	palettes [ 1 ]->colors [ 0 ].g = 0x61;
 	palettes [ 1 ]->colors [ 0 ].b = 0x36;
@@ -199,7 +199,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 1 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 2: VALENTINE */
+	/* Palette 2 */
 	palettes [ 2 ]->colors [ 0 ].r = 0xad;
 	palettes [ 2 ]->colors [ 0 ].g = 0x5e;
 	palettes [ 2 ]->colors [ 0 ].b = 0x8c;
@@ -210,7 +210,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 2 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 3: PLUM CREAM */
+	/* Palette 3 */
 	palettes [ 3 ]->colors [ 0 ].r = 0x82;
 	palettes [ 3 ]->colors [ 0 ].g = 0x4d;
 	palettes [ 3 ]->colors [ 0 ].b = 0x67;
@@ -221,7 +221,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 3 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 4: TAN TEST - YES */
+	/* Palette 4 */
 	palettes [ 4 ]->colors [ 0 ].r = 0x86;
 	palettes [ 4 ]->colors [ 0 ].g = 0x76;
 	palettes [ 4 ]->colors [ 0 ].b = 0x66;
@@ -232,7 +232,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 4 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 5: NICE */
+	/* Palette 5 */
 	palettes [ 5 ]->colors [ 0 ].r = 0x2c;
 	palettes [ 5 ]->colors [ 0 ].g = 0x4a;
 	palettes [ 5 ]->colors [ 0 ].b = 0x52;
@@ -243,7 +243,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 5 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 6: COFFEE */
+	/* Palette 6 */
 	palettes [ 6 ]->colors [ 0 ].r = 0x52;
 	palettes [ 6 ]->colors [ 0 ].g = 0x36;
 	palettes [ 6 ]->colors [ 0 ].b = 0x34;
@@ -254,7 +254,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 6 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 7: BLUEBERRY */
+	/* Palette 7 */
 	palettes [ 7 ]->colors [ 0 ].r = 0x53;
 	palettes [ 7 ]->colors [ 0 ].g = 0x65;
 	palettes [ 7 ]->colors [ 0 ].b = 0xb5;
@@ -265,7 +265,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 7 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 8: CREAMCICLE */
+	/* Palette 8 */
 	palettes [ 8 ]->colors [ 0 ].r = 0xfa;
 	palettes [ 8 ]->colors [ 0 ].g = 0x81;
 	palettes [ 8 ]->colors [ 0 ].b = 0x2f;
@@ -276,7 +276,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 8 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 9: AMBER DREAM */
+	/* Palette 9 */
 	palettes [ 9 ]->colors [ 0 ].r = 0x1e;
 	palettes [ 9 ]->colors [ 0 ].g = 0x43;
 	palettes [ 9 ]->colors [ 0 ].b = 0x4c;
@@ -287,7 +287,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 9 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 10: ICE BREAKER */
+	/* Palette 10 */
 	palettes [ 10 ]->colors [ 0 ].r = 0x19;
 	palettes [ 10 ]->colors [ 0 ].g = 0x95;
 	palettes [ 10 ]->colors [ 0 ].b = 0xad;
@@ -298,7 +298,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 10 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 11: PINK CHOCOLATE */
+	/* Palette 11 */
 	palettes [ 11 ]->colors [ 0 ].r = 0x5d;
 	palettes [ 11 ]->colors [ 0 ].g = 0x53;
 	palettes [ 11 ]->colors [ 0 ].b = 0x5e;
@@ -309,7 +309,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 11 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 12: NICE AS WELL */
+	/* Palette 12 */
 	palettes [ 12 ]->colors [ 0 ].r = 0xa1;
 	palettes [ 12 ]->colors [ 0 ].g = 0x1f;
 	palettes [ 12 ]->colors [ 0 ].b = 0x0c;
@@ -320,7 +320,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 12 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 13: GRAY DAY */
+	/* Palette 13 */
 	palettes [ 13 ]->colors [ 0 ].r = 0x2c;
 	palettes [ 13 ]->colors [ 0 ].g = 0x4a;
 	palettes [ 13 ]->colors [ 0 ].b = 0x52;
@@ -331,7 +331,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 13 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 14: PSYCHO CONTRAST */
+	/* Palette 14 */
 	palettes [ 14 ]->colors [ 0 ].r = 0xaf;
 	palettes [ 14 ]->colors [ 0 ].g = 0x1c;
 	palettes [ 14 ]->colors [ 0 ].b = 0x1c;
@@ -342,7 +342,7 @@ void initializePalettes ( SDL_Palette **palettes )
 	palettes [ 14 ]->colors [ 1 ].a = 0xff;
 
 
-	/* 15: main palette REDO*/
+	/* Palette 15 */
 	palettes [ 15 ]->colors [ 0 ].r = 0x28;
 	palettes [ 15 ]->colors [ 0 ].g = 0x36;
 	palettes [ 15 ]->colors [ 0 ].b = 0x55;
