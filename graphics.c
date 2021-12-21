@@ -520,19 +520,8 @@ void screenShot ( struct Graphics *graphics )
 
 
 	SDL_BlitScaled ( graphics->surface, NULL, graphics->scaled_surface, NULL );
-	time_information = NULL;
-	time_information = malloc ( sizeof ( struct tm ) );
-	if ( time_information != NULL )
-	{
-		time ( &rawtime );
-		time_information = localtime ( &rawtime );
-		/* localtime_s ( time_information, &rawtime ); */
-		strftime ( filename, 30, "mousegame_%Y%m%d-%H%M%S.bmp", time_information );
-		SDL_SaveBMP ( graphics->scaled_surface, filename );
-		free ( time_information );
-	}
-	else
-	{
-		SDL_SaveBMP ( graphics->scaled_surface, "mousegame_screenshot.bmp" );
-	}
+	time ( &rawtime );
+	time_information = localtime ( &rawtime );
+	strftime ( filename, 30, "mousegame_%Y%m%d-%H%M%S.bmp", time_information );
+	SDL_SaveBMP ( graphics->scaled_surface, filename );
 }
