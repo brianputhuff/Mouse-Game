@@ -12,6 +12,7 @@ SOURCE = \
 	cat.c \
 	coffee.c \
 	ending.c \
+	fps.c \
 	game.c \
 	gameover.c \
 	graphics.c \

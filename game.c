@@ -1,7 +1,6 @@
 /**
 
 Mouse Game
-Version 0.9.8
 
 Copyright 2021 Brian Puthuff
 
@@ -81,6 +80,9 @@ struct Game *createGame ( void )
 	initializeSprites ( game->sprites );
 	initializeAnimationSequences ( game->animationsequences );
 
+	/* init fps controls */
+	FPS_init ( &game->fps );
+
 	return game;
 }
 
@@ -123,78 +125,75 @@ void destroyGame ( struct Game *game )
 void runGame ( struct Game *game )
 {
 	uint8_t is_running;
-	uint32_t timer;
-	uint32_t delta;
+
+
 
 	/* set initial start state */
 	setAndInitializeGameState ( game, STATE_GAME_VERSION );
 
 	is_running = 1;
-	timer = SDL_GetTicks ( );
+	/* timer = SDL_GetTicks ( ); */
 	while ( is_running == 1 )
 	{
-		delta = SDL_GetTicks ( ) - timer;
-		if ( delta >= 16 )
+		/* start frames per second counter */
+		FPS_start ( &game->fps );
+
+		/* update input */
+		updateInputRegisters ( game->input );
+
+		/* main exit option */
+		if ( game->input->ESCAPE == 1 )
 		{
-			/* update input */
-			updateInputRegisters ( game->input );
-
-			/* main exit option */
-			if ( game->input->ESCAPE == 1 )
-			{
-				is_running = 0;
-			}
-
-			/* palette cycle */
-			if ( game->input->BUTTON_R == 1 )
-			{
-				game->input->BUTTON_R = 0;
-				game->graphics->palette++;
-				if ( game->graphics->palette == NUMBER_OF_PALETTES )
-				{
-					game->graphics->palette = 0;
-				}
-			}
-
-			if ( game->input->BUTTON_L == 1 )
-			{
-				game->input->BUTTON_L = 0;
-				if ( game->graphics->palette > 0 )
-				{
-					game->graphics->palette--;
-				}
-				else
-				{
-					game->graphics->palette = ( NUMBER_OF_PALETTES - 1 );
-				}
-			}
-
-			if ( game->input->TAB == 1 )
-			{
-				if ( game->state == STATE_GAME_PLAY )
-				{
-					game->input->TAB = 0;
-					game->paused = !( game->paused );
-				}
-			}
-
-			if ( game->input->BUTTON_Y == 1 )
-			{
-				game->input->BUTTON_Y = 0;
-				screenShot ( game->graphics );
-			}
-
-			/* update game state */
-			updateGameState ( game );
-
-			/* render the things */
-			renderGame ( game );
-			timer = SDL_GetTicks ( );
+			is_running = 0;
 		}
-		else
+
+		/* palette cycle */
+		if ( game->input->BUTTON_R == 1 )
 		{
-			SDL_Delay ( 16 - delta );
+			game->input->BUTTON_R = 0;
+			game->graphics->palette++;
+			if ( game->graphics->palette == NUMBER_OF_PALETTES )
+			{
+				game->graphics->palette = 0;
+			}
 		}
+
+		if ( game->input->BUTTON_L == 1 )
+		{
+			game->input->BUTTON_L = 0;
+			if ( game->graphics->palette > 0 )
+			{
+				game->graphics->palette--;
+			}
+			else
+			{
+				game->graphics->palette = ( NUMBER_OF_PALETTES - 1 );
+			}
+		}
+
+		if ( game->input->TAB == 1 )
+		{
+			if ( game->state == STATE_GAME_PLAY )
+			{
+				game->input->TAB = 0;
+				game->paused = !( game->paused );
+			}
+		}
+
+		if ( game->input->BUTTON_Y == 1 )
+		{
+			game->input->BUTTON_Y = 0;
+			screenShot ( game->graphics );
+		}
+
+		/* update game state */
+		updateGameState ( game );
+
+		/* render the things */
+		renderGame ( game );
+		
+		/* end frames per second counter */
+		FPS_end ( &game->fps );
 	}
 }
 

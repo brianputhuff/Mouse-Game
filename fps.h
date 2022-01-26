@@ -33,57 +33,65 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
+#ifndef FPS_H
+#define FPS_H
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <stdint.h>
+#include <math.h>
 #include <SDL2/SDL.h>
-#include "game.h"
 
 
 
-int main ( int argc, char **argv )
+#define FPS 60
+#define FPS_AVG_COUNT 60
+#define FPS_FRAME_DURATION ( float ) ( 1000.0f / ( float ) FPS )
+
+
+
+/**
+ * @brief Collects frame timing data and provides a mean FPS for count display.
+ */
+struct FramesPerSecond
 {
-	struct Game *game;
-	time_t current_time;
+        uint64_t performance_counter_start;
+        uint64_t performance_counter_end;
+        float elapsed_ms;
+        float fps_data [ FPS_AVG_COUNT ];
+        uint8_t fps_data_index;
+        uint8_t average;
+};
 
 
 
-	/* initialize SDL2 */
-	if ( SDL_Init ( SDL_INIT_EVERYTHING ) < 0 )
-	{
-		printf ( "SDL2 did not initialize.\n" );
-		printf ( "%s\n", SDL_GetError ( ) );
-		return 1;
-	}
-	printf ( "SDL initialized.\n" );
+/**
+ * @brief Initializes a frames per second data structure.
+ * @param fps: A pointer to a FramesPerSecond data structure
+ * @returns Nothing
+ */
+void FPS_init ( struct FramesPerSecond *fps_struct );
 
-	/* initialize random seed */
-	current_time = time ( NULL );
-	srand ( ( int32_t ) current_time );
-	printf ( "Seed: %lld\n", ( long long int ) current_time );
 
-	/* create game structure  */
-	game = NULL;
-	game = createGame ( );
-	if ( game != NULL )
-	{
-		printf ( "Game created.\nRunning game.\n" );
 
-		/* run game  */
-		runGame ( game );
-		
-		/* destroy game structure  */
-		destroyGame ( game );
-		printf ( "Game destroyed.\n" );
-	}
-	else
-	{
-		printf ( "Game not created.\n" );
-	}
+/**
+ * @brief Starts performance counter from a frames per second data structure.
+ * @param fps: A pointer to a FramesPerSecond data structure
+ * @returns Nothing
+ */
+void FPS_start ( struct FramesPerSecond *fps_struct );
 
-	/* exit SDL2 */
-	SDL_Quit ( );
-	printf ( "SDL exited.\n" );
 
-	return 0;
-}
+
+/**
+ * @brief Gets elapsed time and spins idle until FPS cap is met. Updates the FPS counter data.
+ * @param fps: A pointer to a FramesPerSecond data structure
+ * @returns Nothing
+ */
+void FPS_end ( struct FramesPerSecond *fps_struct );
+
+
+
+#endif

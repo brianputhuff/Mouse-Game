@@ -1,7 +1,6 @@
 /**
 
 Mouse Game
-Version 0.9.8
 
 Copyright 2021 Brian Puthuff
 

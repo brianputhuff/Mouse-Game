@@ -1,7 +1,6 @@
 /**
 
 Mouse Game
-Version 0.9.8
 
 Copyright 2021 Brian Puthuff
 
@@ -45,6 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <SDL2/SDL.h>
 #include "animation.h"
 #include "audio.h"
+#include "fps.h"
 #include "graphics.h"
 #include "input.h"
 #include "sprite.h"
@@ -64,9 +64,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 /* version */
-#define VERSION_MAJOR 0
-#define VERSION_MINOR 9
-#define VERSION_PATCH 8
+#define VERSION_MAJOR 1
+#define VERSION_MINOR 0
+#define VERSION_PATCH 0
 
 
 
@@ -169,6 +169,9 @@ struct Game
 	/* sub structures */
 	struct Stage *stage;
 	struct Title *title;
+
+	/* frames per second control */
+	struct FramesPerSecond fps;
 };
 
 
