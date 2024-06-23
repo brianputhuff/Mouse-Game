@@ -58,7 +58,7 @@ There is a makefile included in this repository. Use `make` to build an executab
 
 [SDL2](https://www.libsdl.org/)
 
-[SDL Mixer](https://www.libsdl.org/projects/SDL_mixer/)
+[SDL Mixer](ttps://github.com/libsdl-org/SDL_mixer) 
 
 If all goes according to plan and you were able to build this game, simply run the executable `.\mousegame`to play.
 
